@@ -14,13 +14,13 @@
         <nav>
             <div id="nav-contents">
                 <h3>Contents</h3>
-                <a>About the Study</a>
-                <a>Why Participate?</a>
-                <a>Your Rights</a>
-                <a>Who can Participate?</a>
-                <a>More Study Details</a>
-                <a>About the Research centre:</a>
-                <a>Study Location</a>
+                <a href="#about-content" class="active">About the Study</a>
+                <a href="#participate-list" class="active">Why Participate?</a>
+                <a href="#participate-list" class="active">Your Rights</a>
+                <a href="#participate-list" class="active">Who can Participate?</a>
+                <a href="#participate-list" class="active">More Study Details</a>
+                <a href="#about-centre" class="active">About the Research centre:</a>
+                <a href="#map" class="active">Study Location</a>
             </div>
             <div class="form">
                 <h3>Next Steps</h3>
@@ -28,7 +28,7 @@
                     <li>Complete the study questionnare</li>
                     <li>Understand if you're eligible to participate</li>
                 </ol>
-                <button class="form-btn" onclick="window.open('www.example.com', '_blank')">Click Here</button>
+                <button class="form-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScotTE0kCPgruWMjONcZpvSPlpdjG0tR1YejxDTgWDUSu4iwA/viewform?usp=publish-editor', '_blank')">Click Here</button>
             </div>
         </nav>
         <section class="content">
@@ -57,23 +57,37 @@
                 <h3>About the Research Centre</h3>
                 <div id="about-centre-red"></div>
                 <div class="about-centre-txt">
-                    <p>Macquarie University</p>
+                    <h3>Macquarie University</h3>
                     <p>Macquarie University is a leading public research university renowned for its commitment to academic excellence and innovative research. Offering a wide range of programs across disciplines such as business, education, law, science, and the arts, the university is dedicated to fostering knowledge and embracing different views.</p>
                 </div>
                 <div id="about-centre-blue"></div>
                 <div class="about-centre-txt">
-                    <p>Box Hill Hospital</p>
+                    <h3>Box Hill Hospital</h3>
                     <p>Box Hill Hospital in Melbourne is one of the seven hospitals that are governed within the Eastern Health network, which provides health care services across the Eastern metropolitan area of Victoria.</p>
                 </div>
                 <p id="about-centre-ftr">This study has been reviewed and approved by the HREC for the sites indicated above.</p>
             </section>
             <section>
                 <h3>Study Location</h3>
-                <div>
+                <div id="map">
                     <iframe style="border: 0;" src="https://www.google.com/maps/d/embed?mid=1yMhEKfpGzi1ZlW2SaAxB2UzYbCJn-A4&amp;ehbc=2E312F" width="100%" height="450" allowfullscreen="allowfullscreen"></iframe>
                 </div>
             </section>
         </section>
+        <script>
+            const navLinks = document.querySelectorAll('#nav-contents a');
+            
+            window.addEventListener('load', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        </script>
     </main>
 </body>
 </html>
